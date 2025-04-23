@@ -1,0 +1,189 @@
+<!-- index.html - Signup Page --><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffa04d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .signup-box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .signup-box h2 {
+      color: orangered; 
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-bottom: 2px solid gray;
+      outline: none;
+    }
+    .btn {
+      background-color: orangered;
+      color: white;
+      padding: 10px 30px;
+      text-align: center;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    .btn:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <h2>Create an Account</h2>
+    <p>Please enter all your details</p>
+    <form action="welcome.html">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button class="btn" type="submit">Sign Up</button>
+    </form>
+  </div>
+</body>
+</html><!-- welcome.html - Welcome Page --><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .box {
+      text-align: center;
+    }
+    .box h1 {
+      color: orangered;
+    }
+    .btn {
+      background-color: orangered;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Hi, User!</h1>
+    <p>Welcome to your dashboard.</p>
+    <a class="btn" href="wallet.html">Go to Wallet</a>
+  </div>
+</body>
+</html><!-- wallet.html - Wallet Page --><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Wallet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #fef3e2;
+    }
+    .wallet-box {
+      max-width: 400px;
+      margin: auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .wallet-box h2 {
+      color: #d35400;
+    }
+    .btn {
+      background-color: orangered;
+      color: white;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="wallet-box">
+    <h2>Wallet Balance: $0.00</h2>
+    <button class="btn">Add Funds</button>
+    <button class="btn">Withdraw</button>
+    <br><br>
+    <a href="payment.html" class="btn">Make a Payment</a>
+  </div>
+</body>
+</html><!-- payment.html - Payment Page --><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffe5cc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .payment-box {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      width: 300px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .btn {
+      width: 100%;
+      background-color: orangered;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-box">
+    <h2>Make a Payment</h2>
+    <input type="text" placeholder="Amount">
+    <input type="text" placeholder="Recipient">
+    <button class="btn">Pay</button>
+  </div>
+</body>
+</html>

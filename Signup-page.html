@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Signup Form</title>
+        <style>
+            body {
+                background-color: powderblue; 
+                font-family: 'Times New Roman', Times, serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                margin: 0px;
+            }
+
+            .form-container {
+                background-color: white;
+                padding: 30px 40px;
+                border-radius: 8px;
+                text-align: center;
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            }
+
+            .form-container h2 {
+                color: blue;
+                margin-bottom: 5px;
+            }
+
+            .form-container p {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+
+            .form-container input[type="text"],
+            .form-container input[type="email"],
+            .form-container input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: none;
+                border-bottom: 2px solid black;
+                background-color: transparent;
+                outline: none;
+            }
+
+            .signup-btn {
+                width: 20%;
+                padding: 15px;
+                margin-top: 30px;
+                background-color: blue;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 20px;
+                cursor: pointer;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+
+            .signup-btn:hover {
+                background-color: darkblue;
+            }
+        </style>
+    </head>
+    <body>
+
+     <div class="form-container">
+        <h2>Create an Account</h2>
+        <p>Please enter all your details to signup and get started</p>
+
+        <form>
+            <input type="text" placeholder="Full Name" required><br>
+            <input type="email" placeholder="Email Address" required><br>
+            <input type="password" placeholder="Password" required><br>
+        </form>
+     </div>
+
+     <button class="signup-btn">SIGN UP</button>
+    </body>
+</html>
