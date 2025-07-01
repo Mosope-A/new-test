@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RegComply</title>
   <style>
     * {
@@ -13,73 +13,63 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
     }
 
     header {
-      background-color: #060671;
-      color: white;
-      padding: 1.5rem 2rem;
+      background-color: #0a165f; 
+      padding: 1.2rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     .logo {
-      font-size: 1.6rem;
-      font-weight: bold;
-    }
-
-    navbar {
-      background-color: #0d1b4c;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .navbar .logo {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .navbar .logo img {
+    .logo img {
       height: 25px;
     }
 
-    .navbar nav {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
+    .logo span {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: white;
     }
 
-    .navbar nav a {
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
       text-decoration: none;
       color: white;
       font-size: 0.9rem;
-      transition: color 0.3s ease;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
     }
 
-    .navbar nav a:hover {
-      color: #00ffae;
+    .nav-links a:hover {
+      opacity: 0.75;
     }
 
-    .navbar .btn {
+    .btn {
       background-color: #00c851;
       color: white;
+      padding: 0.5rem 1.2rem;
       border: none;
-      padding: 0.5rem 1rem;
       border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
-    .navbar .btn:hover {
-      background-color: #00a140;
+    .btn:hover {
+      background-color: #00a040;
     }
 
     main {
@@ -88,100 +78,118 @@
       margin-top: 1rem;
     }
 
-    
-.footer {
+    .footer {
       background-color: black;
       color: white;
       padding: 3rem 2rem;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+      gap: 2rem;
     }
 
-    .footer .footer-section {
+    .footer-column {
       flex: 1;
       min-width: 200px;
-      margin-bottom: 1.5rem;
     }
 
-    .footer .footer-section h4 {
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
-      color: #ccc;
-    }
-
-    .footer .footer-section p,
-    .footer .footer-section a {
-      font-size: 0.9rem;
-      line-height: 1.6;
-      color: #aaa;
-      text-decoration: none;
-    }
-
-    .footer .footer-section a:hover {
-      text-decoration: underline;
-      color: white;
-    }
-
-    .footer .logo {
+    .footer-logo {
       display: flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 1rem;
     }
 
-    .footer .logo img {
+    .footer-logo img {
       height: 25px;
     }
 
+    .footer-logo strong{
+      color: #ffffff;
+      font-size: 1rem;
+    }
+
+    .footer-column h4 {
+      font-size: 0.75rem;
+      color: #ccc;
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-column p{
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #aaa;
+    }
+
+    .footer-column a {
+      display: block;
+      font-size: 0.9;
+      line-height: 1.6;
+      color: #ffffff;
+      text-decoration: none;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-column a:hover {
+      text-decoration: underline;
+      color: white;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="navbar">
     <div class="logo">
       <img src="logo.png" alt="Logo" />
-      <strong>REGCOMPLY</strong>
+      <span>REGCOMPLY</span>
     </div>
-    <nav>
+
+    <div class="nav-links">
       <a href="#">Features</a>
       <a href="#">Industries</a>
       <button class="btn">Get Early Access</button>
-    </nav>
-  </div>
+    </div>
   </header>
-
-  <main>
+   <main>
     <h1>Welcome to RegComply</h1>
     <p>Body would have been here.</p>
   </main>
 
+
   <footer class="footer">
-    <div class="footer-section">
-      <div class="logo">
-        <img src="logo.png" alt="Logo" />
-        <strong>REGCOMPLY</strong>
-      </div>
-      <p>Transform how your enterprise identifies, investigates, and monitors risk.</p>
+  <div class="footer-column">
+    <div class="footer-logo">
+      <img src="logo.png" alt="Logo" />
+      <strong>REGCOMPLY</strong>
     </div>
+    <p>Transform how your enterprise identifies, investigates, and monitors risk.</p>
+  </div>
 
-    <div class="footer-section">
-      <h4>QUICK LINKS</h4>
-      <a href="#">Our Blog</a><br />
-      <a href="#">Resources</a><br />
-      <a href="#">Privacy Policy</a><br />
-      <a href="#">Terms of Use</a>
-    </div>
+  <div class="footer-column">
+    <h4>QUICK LINKS</h4>
+    <ul>
+      <li><a href="#">Our Blog</a></li>
+      <li><a href="#">Resources</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Use</a></li>
+    </ul>
+  </div>
 
-    <div class="footer-section">
-      <h4>EMAIL</h4>
-      <p>hello@spectra.co</p>
-
-      <h4 style="margin-top: 1rem;">PHONE NUMBER</h4>
-      <p>+364 8393 49829</p>
-    </div>
-  </footer>
+  <div class="footer-column">
+    <h4>EMAIL</h4>
+    <p>hello@spectra.co</p>
+    <h4 style="margin-top: 1rem;">PHONE NUMBER</h4>
+    <p>+364 8393 49829</p>
+  </div>
+</footer>
 
 </body>
 </html>
