@@ -11,20 +11,24 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
+      height: 100%;
       font-family: 'Segoe UI', sans-serif;
     }
 
+    body {
+      display: flex;
+      flex-direction: column;
+      background: white;
+    }
+
     header {
-      background-color: #0a165f; 
+      background-color: #0a165f;
       padding: 1.2rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-
-    .dimmer-text{
-      color:rgba(255, 255, 255, 0);
+      position: relative;
     }
 
     .logo {
@@ -76,25 +80,45 @@
       background-color: #00a040;
     }
 
+    .menu-button {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .menu-button span {
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      width: 100%;
+    }
+
     main {
       padding: 2rem;
-      background-color: white;
-      margin-top: 11rem;
+      flex: 1;
     }
 
     .footer {
-      background-color: black;
+      background-color: rgb(0, 0, 0);
       color: white;
       padding: 3rem 2rem;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 1rem;
+    }
+
+    .dimmer-text{
+      color:rgba(255, 255, 255, 0.142);
     }
 
     .footer-column {
       flex: 1;
-      min-width: 200px;
+      max-width: 250px;
+      padding: 0 10px;
     }
 
     .footer-logo {
@@ -108,7 +132,7 @@
       height: 25px;
     }
 
-    .footer-logo strong{
+    .footer-logo strong {
       color: #ffffff;
       font-size: 1rem;
     }
@@ -121,7 +145,7 @@
       letter-spacing: 1px;
     }
 
-    .footer-column p{
+    .footer-column p {
       font-size: 0.9rem;
       line-height: 1.6;
       color: #aaa;
@@ -129,15 +153,37 @@
 
     .footer-column a {
       display: block;
-      font-size: 0.9;
+      font-size: 0.9rem;
       line-height: 1.6;
       color: #ffffff;
       text-decoration: none;
       margin-bottom: 0.3rem;
     }
 
-    
-    
+    .footer-column.right-column{
+        margin-left: -40px;
+    }
+    /* Media Query */
+    @media (max-width: 710px) {
+      .menu-button {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #0a165f;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 3rem;
+        gap: 1rem;
+        transform: translateY(0);
+        opacity: 1;
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -148,43 +194,49 @@
       <span>REGCOMPLY</span>
     </div>
 
+    <div class="menu-button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <div class="nav-links">
       <a href="#">Features</a>
       <a href="#">Industries</a>
       <button class="btn">Get Early Access</button>
     </div>
   </header>
-   <main>
+
+  <main>
     <h1>Welcome to RegComply</h1>
     <p>Body would have been here.</p>
   </main>
 
-
   <footer class="footer">
-  <div class="footer-column">
-    <div class="footer-logo">
-      <img src="logo.png" alt="Logo" />
-      <strong>REGCOMPLY</strong>
+    <div class="footer-column">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Logo" />
+        <strong>REGCOMPLY</strong>
+      </div>
+      <p class="dimmer-text">Transform how your enterprise identifies, investigates, and monitors risk.</p>
     </div>
-    <p class="dimmer-text">Transform how your enterprise identifies, investigates, and monitors risk.</p>
-  </div>
 
-  <div class="footer-column">
-    <h4 style="font-size: 0.6rem;">QUICK LINKS</h4>
+    <div class="footer-column">
+      <h4 style="font-size: 0.6rem;">QUICK LINKS</h4>
       <a href="#">Our Blog</a>
       <a href="#">Resources</a>
       <a href="#">Privacy Policy</a>
       <a href="#">Terms of Use</a>
-  </div>
+    </div>
 
-  <div class="footer-column">
-    <h4 style="font-size: 0.6rem;">EMAIL</h4>
-    <a href="Email:spectra">hello@spectra.com</a>
+    <div class="footer-column right-column">
+      <h4 style="font-size: 0.6rem;">EMAIL</h4>
+      <a href="Email:spectra">hello@spectra.com</a>
 
-    <h4 style="margin-top: 1.2rem; font-size: 0.6rem;">PHONE NUMBER</h4>
-    <a href="contact No:">+364 8393 49829</a>
-  </div>
-</footer>
+      <h4 style="margin-top: 1.2rem; font-size: 0.6rem;">PHONE NUMBER</h4>
+      <a href="contact No:">+364 8393 49829</a>
+    </div>
+  </footer>
 
 </body>
 </html>
