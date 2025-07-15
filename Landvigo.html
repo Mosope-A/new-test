@@ -5,31 +5,164 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Landvigo</title>
   <style>
-    body {
+    *{
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    .header {
+      width: 100%;
+      padding: 0.7rem 2rem;
+      background-color: white;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      gap: 2rem;
+  }
+
+  .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #9c27b0;
+      font-family: 'Georgia', serif;
+  }
+
+  .navbar {
+      display: flex;
+      gap: 3.5rem;
+      margin-left: 2rem;
+  }
+
+  .navbar a {
+      text-decoration: none;
+      color: #0e0d0d;
+      font-weight: 300;
+      font-size: 0.85rem;
+  }
+
+  .navbar a:first-child {
+    color: #6308ca;
+  }
+
+  .auth-buttons {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .auth-buttons .login {
+    text-decoration: none;
+    color: #ff6b00;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .auth-buttons .register {
+    background-color: #ff6b00;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  .auth-buttons .login:hover {
+    color: #dd7b35;
+  }
+
+  .auth-buttons .register:hover {
+    background-color: #e85c00;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    border-radius: 2px;
+    display: block;
+    }
+
+
+  .navbar .mobile {
+    display: none;
+  }
+
+
+    body {
       font-family: Arial, sans-serif;
       height: 100%;
-      box-sizing: border-box;
     }
 
     .background {
-      background-image: url(Assets/living-room.webp);
+      background-image: url('Assets/landed.jpg');
       background-size: cover;
       background-position: center;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 7rem 2rem 2rem 2rem;
+    }
+
+    .form-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 3rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    
+    .form-side-text {
+      flex: 1;
+      color: white;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      width: 100%;
+      max-width: 250px;
+      word-wrap: break-word;
+      order: 1;
+    }
+
+    .middle-p {
+      color: #ccc;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .bottom-p {
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-top: 1rem;
     }
 
     .form-container {
-      background-color: rgba(0, 0, 0, 0.7);
+     background-color: rgba(0, 0, 0, 0.7);
       color: white;
       padding: 2rem;
       border-radius: 15px;
-      max-width: 500px;
-      width: 90%;
+      max-width: 480px;
+      width: 100%;
+      order: 2;
     }
 
     h2 {
@@ -96,31 +229,169 @@
       text-align: center;
     }
 
-    @media (max-width: 600px){
-     
-    .form-container{
-      padding: 1rem;
+
+    .footer {
+      background-color: #f5f5f5;
+      padding: 3rem 2rem;
+      color: #333;
     }
 
-    .row{
-      flex-direction: column;
-    }
-     button.full{
-      background-color: #1e2f99!important;
-      color: white!important;
-      font-weight: bold!important;
-      cursor: pointer;
-      font-size: 12px!important;
-      width: 50%!important;
-      display: block;
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
       margin: 0 auto;
-      transition: background-color 0.4s ease, color 0.4s ease;
+      gap: 2rem;
     }
+
+    .footer-column {
+      flex: 1 1 22%;
+      min-width: 200px;
+    }
+
+    .footer-column h4 {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #1e2f99;
+      margin-bottom: 1rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-column ul li a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #1e2f99;
+    }
+
+    @media (max-width: 900px) {
+
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+    gap: 1rem;
+    display: none;
+  }
+
+  .navbar.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .auth-buttons {
+    display: none;
+  }
+
+  .navbar .mobile {
+    display: block;
+  }
+     
+  button.full{
+    width: 50%;
+    cursor: pointer;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    margin: 0 auto;
+  }
+
+  .form-container {
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    order: 1!important;
+  }
+
+  .form-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+      
+  .form-side-text {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 90%;
+    width: 100%;
+    max-width: 250px;
+    word-wrap: break-word;
+    order: 2!important; 
+  }
+
+
+  .row{
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+
+
+  .footer-container {
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+  }
+
+
+
+  .footer-column {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
   }
   </style>
 </head>
 <body>
+
+
+  <header class="header">
+  <div class="logo">Landvigo</div>
+
+  <nav class="navbar" id="navbar">
+    <a href="#">HOME</a>
+    <a href="#">DEAL OF DAY</a>
+    <a href="#">ABOUT</a>
+    <a href="#">CONTACT</a>
+    <a href="#" class="login mobile">LOGIN</a>
+    <a href="#" class="register mobile">REGISTER</a>
+  </nav>
+
+  <div class="auth-buttons">
+    <a href="#" class="login">LOGIN</a>
+    <a href="#" class="register">REGISTER</a>
+  </div>
+
+  <div class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
   <div class="background">
+    <div class="form-wrapper">
+
     <div class="form-container">
       <h2>Sell a property in Nigeria</h2>
       <p class="subtext">We keep you in the loop all the way.</p>
@@ -152,12 +423,66 @@
         <input type="email" name="email" placeholder="Email" class="full" required />
         <button type="submit" class="full">GET QUOTATION</button>
 
-        <p class="disclaimer">
-          We understand the prices of properties in the market are sometimes over priced or fictitious,
-          so our valuation estimate is just a guide and an estimation.
-        </p>
-      </form>
+          <p class="disclaimer">
+            We understand the prices of properties in the market are sometimes over priced or fictitious,
+            so our valuation estimate is just a guide and an estimation.
+          </p>
+        </form>
+      </div>
+
+       <div class="form-side-text">
+          <p><b>Get New Test Text paid
+             for your property within 48 hours...</b></p>
+             <div class="middle-p">
+          <p><small>Free valuation and quick payout</small></p>
+             </div>
+             <div class="bottom-p"><p><small><b>GET QUOTATION</b></small></p>
+             </div>
+       </div>
     </div>
   </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>COMPANY</h4>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Become an Investor</a></li>
+          <li><a href="#">Our Contacts</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>PRODUCTS</h4>
+        <ul>
+          <li><a href="#">Buy</a></li>
+          <li><a href="#">Sell</a></li>
+          <li><a href="#">Sell & Buy Back</a></li>
+          <li><a href="#">Become a Partner</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>INFORMATION</h4>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>CONTACT</h4>
+        <ul>
+          <li>&#x1F4CD;110 Ademola Adetokunbo Crescent, Wuse 2, Abuja</li>
+          <li>&#x260E;+234 812 767 7999</li>
+          <li>&#x260E;+234 803 376 0465</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
