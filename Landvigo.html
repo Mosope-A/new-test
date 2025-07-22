@@ -36,6 +36,7 @@
       display: flex;
       gap: 3.5rem;
       margin-left: 2rem;
+      transition: right 0.4s ease;/* Slide-in mobile nav styles */
   }
 
   .navbar a {
@@ -82,6 +83,27 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
 
+  .navbar .login.mobile {
+  color: #ff6b00;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: none;
+}
+
+.navbar .register.mobile {
+  background-color: #ff6b00;
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-top: 0.5rem;
+  display: none;
+}
+
 
   .menu-toggle {
     display: none;
@@ -100,9 +122,6 @@
     }
 
 
-  .navbar .mobile {
-    display: none;
-  }
 
 
     body {
@@ -277,23 +296,49 @@
       color: #1e2f99;
     }
 
+    body.nav-open .background,
+    body.nav-open .form-wrapper,
+    body.nav-open footer {
+      filter: blur(4px);
+      transition: filter 0.3s ease;
+      pointer-events: none;
+    } 
+
+    .close-btn {
+      display: none;
+    }
+
     @media (max-width: 900px) {
 
   .navbar {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    width: 100%;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    background-color: #1854ae;
+    color: white;
+    width: 250px;
     flex-direction: column;
     align-items: flex-start;
     padding: 1rem 2rem;
     gap: 1rem;
-    display: none;
+    z-index: 999;
+    transition: right 0.4s ease;
   }
 
   .navbar.show {
-    display: flex;
+    right: 0;
+  }
+
+  .navbar .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.4rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
   }
 
   .menu-toggle {
@@ -304,8 +349,9 @@
     display: none;
   }
 
-  .navbar .mobile {
-    display: block;
+  .navbar .login.mobile,
+  .navbar .register.mobile {
+    display: inline-block;
   }
      
   button.full{
@@ -359,16 +405,27 @@
     flex: 1 1 45%;
     max-width: 45%;
   }
+
+  .close-btn{
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+  }
   }
   </style>
 </head>
 <body>
-
-
   <header class="header">
   <div class="logo">Landvigo</div>
 
   <nav class="navbar" id="navbar">
+    <button class="close-btn" id="closeBtn">&times;</button>
     <a href="#">HOME</a>
     <a href="#">DEAL OF DAY</a>
     <a href="#">ABOUT</a>
@@ -381,8 +438,9 @@
     <a href="#" class="login">LOGIN</a>
     <a href="#" class="register">REGISTER</a>
   </div>
+  
 
-  <div class="menu-toggle">
+  <div class="menu-toggle" id="menuToggle">
     <span></span>
     <span></span>
     <span></span>
@@ -484,5 +542,26 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded",function() {
+        const menuToggle =
+      document.getElementById("menuToggle");
+        const navbar =
+      document.getElementById("navbar");
+        const closeBtn = 
+      document.getElementById("closeBtn");
+
+      menuToggle.addEventListener("click",function() {
+        navbar.classList.toggle("show");
+      document.body.classList.add("nav-open")
+      });
+
+      closeBtn.addEventListener("click", function () {
+        navbar.classList.remove("show");
+      document.body.classList.remove("nav-open");
+      });
+    });
+  </script>
 </body>
 </html>
