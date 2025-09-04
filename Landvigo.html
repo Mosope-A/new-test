@@ -100,7 +100,6 @@
   border-radius: 5px;
   font-weight: bold;
   font-size: 0.9rem;
-  display: inline-block;
   margin-top: 0.5rem;
   display: none;
 }
@@ -121,9 +120,6 @@
     border-radius: 2px;
     display: block;
     }
-
-
-
 
     body {
       font-family: Arial, sans-serif;
@@ -426,13 +422,7 @@
   <div class="logo">Landvigo</div>
 
   <nav class="navbar" id="navbar">
-    <button class="close-btn" id="closeBtn">&times;</button>
-    <a href="#">HOME</a>
-    <a href="#">DEAL OF DAY</a>
-    <a href="#">ABOUT</a>
-    <a href="#">CONTACT</a>
-    <a href="#" class="login mobile">LOGIN</a>
-    <a href="#" class="register mobile">REGISTER</a>
+    <button class="close-btn" id="closeBtn" aria-label="Close navigation menu">&times;</button>
   </nav>
 
   <div class="auth-buttons">
@@ -441,7 +431,7 @@
   </div>
   
 
-  <div class="menu-toggle" id="menuToggle">
+  <div class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
     <span></span>
     <span></span>
     <span></span>
@@ -457,13 +447,13 @@
 
       <form>
         <div class="row">
-          <select name="location" required>
+          <select id="locationSelect" name="location" required>
             <option disabled selected hidden>Property Location</option>
             <option>Abuja</option>
             <option>Lagos</option>
           </select>
 
-          <select name="lga" required>
+          <select id="lgaSelect" name="lga" required>
             <option disabled selected hidden>Property LGA</option>
             <option>Asokoro</option>
             <option>Ikeja</option>
@@ -476,7 +466,7 @@
             <option>Residential</option>
             <option>Commercial</option>
           </select>
-          <input type="tel" name="phone" placeholder="Phone Number" required />
+          <input type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{11}"/>
         </div>
 
         <input type="email" name="email" placeholder="Email" class="full" required />
@@ -545,24 +535,80 @@
   </footer>
 
   <script>
-    /*document.addEventListener("DOMContentLoaded",function() {*/
-        const menuToggle =
-      document.getElementById("menuToggle");
-        const navbar =
-      document.getElementById("navbar");
-        const closeBtn = 
-      document.getElementById("closeBtn");
+    /*document.addEventListener("DOMContentLoaded",function() {
+       navConfig.init();*/              //(JS not wrapped in DOMContentLoaded): I commented out DOMContentLoaded, which could break if my script is placed in <head> Since my <script> is at the end of <body>,I'm fine.
 
-      menuToggle.addEventListener("click",function() {
-        navbar.classList.add("show");
-      document.body.classList.add("nav-open")
-      });
+       // 1️. Navigation configuration stored in an object
 
-      closeBtn.addEventListener("click", function () {
-        navbar.classList.remove("show");
-      document.body.classList.remove("nav-open");
-      });
+    const navConfig = {
+      navbar: document.getElementById("navbar"),
+      menuToggle: document.getElementById("menuToggle"),
+      closeBtn: document.getElementById("closeBtn"),
+
+      // 2️. Array of link objects
+
+      links: [
+        { text: "HOME", href: "#" },
+        { text: "DEAL OF DAY", href: "#" },
+        { text: "ABOUT", href: "#" },
+        { text: "CONTACT", href: "#" },
+        { text: "LOGIN", href: "#", classes: ["login", "mobile"] },
+        { text: "REGISTER", href: "#", classes: ["register", "mobile"] }
+      ],
+
+      // 3️. Method: render links dynamically using a loop
+
+      renderLinks() {
+
+        // Clear out old children but keep closeBtn
+
+        this.navbar.replaceChildren(this.closeBtn);
+
+        // Loop through each link object in the array
+
+        this.links.forEach(link => {
+          const a = document.createElement("a");
+          a.href = link.href;
+          a.textContent = link.text;
+
+          // If link has special classes, add them in a loop
+
+          if (link.classes) {
+            link.classes.forEach(cls => a.classList.add(cls));
+          }
+          this.navbar.appendChild(a);
+        });
+      },
+
+      // 4️. Method: attach menu toggle logic
+
+      addEventListeners() {
+        this.menuToggle.addEventListener("click", () => {
+          this.navbar.classList.add("show");
+          document.body.classList.add("nav-open");
+        });
+
+        this.closeBtn.addEventListener("click", () => {
+          this.navbar.classList.remove("show");
+          document.body.classList.remove("nav-open");
+        });
+      },
+
+      // 5️. Initialization method
+
+      init() {
+        this.renderLinks();      
+        this.addEventListeners(); 
+      }
+    };
+
+    // 6️. Initialize on DOMContentLoaded
+
+    document.addEventListener("DOMContentLoaded", () => {
+      navConfig.init(); /* now for this to work, I need to uncomment DOMContentLoaded at the top */ //but then i tink they do the same thing so... I'm not sure yet
+    });
     /*});*/
+    
   </script>
 </body>
 </html>
