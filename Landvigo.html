@@ -245,6 +245,63 @@
       text-align: center;
     }
 
+          .faq-section {
+        max-width: 800px;
+        margin: 4rem auto;
+        padding: 1rem;
+      }
+
+      .faq {
+        background: #fff;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .faq-question {
+        font-weight: bold;
+        color: #1e2f99;
+        display: flex;
+        padding: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+
+      .faq-icon {
+        font-size: 1.2rem;
+        color: #1e2f99;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 1rem;
+        color: #444;
+        line-height: 1.5;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+      }
+
+      .faq.active .faq-answer {
+        max-height: 300px; /* Adjust based on content */
+        padding: 1rem;
+      }
+
+      .faq.active .faq-icon {
+        transform: rotate(45deg); /* Rotate the plus icon to form an "X"*/
+      }
+
+      .faq.active .faq-question::after {
+        content: "▲";
+        position: absolute;
+        right: 0;
+        font-size: 0.8rem;
+        color: #1e2f99;
+      }
 
     .footer {
       background-color: #f5f5f5;
@@ -350,7 +407,7 @@
   .navbar .register.mobile {
     display: inline-block;
   }
-     
+  
   button.full{
     width: 50%;
     cursor: pointer;
@@ -479,17 +536,44 @@
         </form>
       </div>
 
-       <div class="form-side-text">
+      <div class="form-side-text">
           <p><b>Get New Test Text paid
-             for your property within 48 hours...</b></p>
-             <div class="middle-p">
+            for your property within 48 hours...</b></p>
+            <div class="middle-p">
           <p><small>Free valuation and quick payout</small></p>
-             </div>
-             <div class="bottom-p"><p><small><b>GET QUOTATION</b></small></p>
-             </div>
-       </div>
+            </div>
+            <div class="bottom-p"><p><small><b>GET QUOTATION</b></small></p>
+            </div>
+      </div>
     </div>
   </div>
+        <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq">
+          <div class="faq-question">
+            <span>How long does it take to sell my property?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">Usually within 48 hours after valuation.</div>
+        </div>
+
+        <div class="faq">
+          <div class="faq-question">
+            <span>Do I need to pay upfront fees?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">No, there are no hidden or upfront charges.</div>
+        </div>
+
+        <div class="faq">
+          <div class="faq-question">
+            <span>Can I sell and buy back?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">Yes, we offer a buy-back option depending on the agreement.</div>
+        </div>
+      </section>
 
   <footer class="footer">
     <div class="footer-container">
@@ -610,5 +694,37 @@
     /*});*/
     
   </script>
+
+
+<!--faq accordian script-->
+
+    <script>
+      // ✅ Class-based FAQ accordion with arrow functions
+    class FAQAccordion {
+      constructor(selector) {
+        this.faqs = document.querySelectorAll(selector);
+        this.init();
+      }
+
+      // Initialize with arrow function
+      init = () => {
+        this.faqs.forEach(faq => {
+          faq.querySelector(".faq-question").addEventListener("click", () => this.toggleFAQ(faq));
+        });
+      };
+
+
+      // Toggle with arrow function
+      toggleFAQ = (faq) => {
+        faq.classList.toggle("active");
+      };
+    }
+
+    // ✅ Run FAQ accordion
+    {
+      new FAQAccordion(".faq");
+    };
+
+</script>
 </body>
 </html>
